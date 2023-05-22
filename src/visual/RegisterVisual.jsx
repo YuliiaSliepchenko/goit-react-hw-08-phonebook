@@ -1,10 +1,10 @@
-import RegisterForm from 'components/FormRegister/FormRegister';
+import RegisterForm from '../components/FormRegister/FormRegister';
 
 export default function RegisterView() {
-    return (
-        <>
-            <h1>Registration form</h1>
-            <RegisterForm />
-        </>
-    );
+  return (
+    <>
+      <h1>Registration form</h1>
+      <RegisterForm />
+    </>
+  );
 }

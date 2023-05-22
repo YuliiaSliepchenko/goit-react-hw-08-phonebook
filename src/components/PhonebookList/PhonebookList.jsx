@@ -1,34 +1,31 @@
-import { useDispatch, useSelector } from 'react-redux';
-import {selectFilteredContacts} from '../../redux/contacts/selectors';
-import {deleteContact} from '../../redux/contacts/operations';
-import s from '../PhonebookList/PhonebookList.module.css';
+import s from './PhonebookList.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectFilteredContacts } from '../../redux/contacts/selectors';
+import { deleteContact } from '../../redux/contacts/operations';
 import Button from '@mui/material/Button';
 
-
-export default function PhoneList({ openModal }) {
+export default function ContactList({ openModal }) {
   const filteredContacts = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
-  
 
-    return (
-       <div className={s.item_list}>
-        {filteredContacts.map(({ id, name, number }) => (        
-          <li className={s.item_text}
-            key={id}>
-            <div >
+  return (
+    <ul className={s.wrapper}>
+      {filteredContacts.map(({ id, name, number }) => (
+        <li key={id}>
+          <div className={s.textWrapper}>
             <p>Name: {name.toUpperCase()}</p>
-            <p>Number: {number} </p>            
-            </div>
-            <div>
-              <Button
+            <p>Number: {number}</p>
+          </div>
+          <div className={s.buttonWrapper}>
+            <Button
               type="button"
               fullWidth
               size="small"
               onClick={() => openModal({ id, name, number })}
-              >
-                Update
-              </Button>
-              <Button
+            >
+              Update
+            </Button>
+            <Button
               type="button"
               fullWidth
               size="small"
@@ -36,12 +33,9 @@ export default function PhoneList({ openModal }) {
             >
               Delete
             </Button>
-              </div>
-      </li>                  
-        ))}
-         </div>
+          </div>
+        </li>
+      ))}
+    </ul>
   );
-};
-
-
-
+}

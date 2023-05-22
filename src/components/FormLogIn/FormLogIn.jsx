@@ -39,7 +39,7 @@ export default function LoginForm() {
   const handleClickShowPassword = () => setShowPassword(show => !show);
 
   const handleMouseDownPassword = (
-    event //: React.MouseEvent<HTMLButtonElement>
+    event
   ) => {
     event.preventDefault();
   };
@@ -55,7 +55,7 @@ export default function LoginForm() {
         placeholder="Enter your email..."
         required
       />
-      
+      <FormControl fullWidth required variant="outlined">
         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
         <OutlinedInput
           id="outlined-adornment-password"
@@ -78,7 +78,7 @@ export default function LoginForm() {
           onChange={handleChange}
           placeholder="Enter your password..."
         />
-      <FormControl/>
+      </FormControl>
       <Button variant="outlined" type="submit">
         Login
       </Button>

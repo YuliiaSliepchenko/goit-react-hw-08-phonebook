@@ -1,50 +1,50 @@
-import Form from '../components/FormContacts/FormContacts';
-import Filter from 'components/FilterName/FilterName';
-import PhoneList from 'components/PhonebookList/PhonebookList';
+import ContactForm from '../components/FormContacts/FormContacts';
+import Filter from '../components/FilterName/FilterName';
+import ContactList from '../components/PhonebookList/PhonebookList';
 import { useEffect, useState } from 'react';
-import { selectIsLoading, selectError } from 'redux/contacts/selectors';
-import { fetchContacts } from 'redux/contacts/operations';
+import { selectIsLoading, selectError } from '../redux/contacts/selectors';
+import { fetchContacts } from '../redux/contacts/operations';
 import { useSelector, useDispatch } from 'react-redux';
-import UpdateModal from 'components/UpdateModal/UpdateModal';
+import UpdateModal from '../components/UpdateModal/UpdateModal';
 
-export default function ContactVisual() {
-    const dispatch = useDispatch();
-    const isLoading = useSelector(selectIsLoading);
-    const error = useSelector(selectError);
-    const [showModal, setShowModal] = useState(false);
-    const [contactToUpdate, setContactToUpdate] = useState({});
+export default function ContactsView() {
+  const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+  const [showModal, setShowModal] = useState(false);
+  const [contactToUpdate, setContactToUpdate] = useState({});
 
-    useEffect(() => {
-        dispatch(fetchContacts());
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
-    const openModal = contact => {
-        setShowModal(true);
-        setContactToUpdate(contact);
-    };
-    const closeModal = () => {
-        setShowModal(false);
-        setContactToUpdate({});
-    };
+  const openModal = contact => {
+    setShowModal(true);
+    setContactToUpdate(contact);
+  };
+  const closeModal = () => {
+    setShowModal(false);
+    setContactToUpdate({});
+  };
 
-    return (
+  return (
+    <>
+      {!showModal ? (
         <>
-            {!showModal ? (
-                <>
-                    <h1>Phonebook</h1>
-                    <Form />
-                    <h2>Contacts</h2>
-                    <Filter />
-                    {isLoading && !error && <p>Loading tascs...</p>}
+          <h1>Phonebook</h1>
+          <ContactForm />
+          <h2>Contacts</h2>
+          <Filter />
+          {isLoading && !error && <p>Loading tasks...</p>}
 
-                    <PhoneList openModal={openModal} />
-                </>
-            ) : (
-                <UpdateModal
-                    closeModal={closeModal}
-                    contactToUpdate={contactToUpdate}
-                />
-            )}
+          <ContactList openModal={openModal} />
         </>
-    );
+      ) : (
+        <UpdateModal
+          closeModal={closeModal}
+          contactToUpdate={contactToUpdate}
+        />
+      )}
+    </>
+  );
 }

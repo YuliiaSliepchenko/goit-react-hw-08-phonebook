@@ -1,11 +1,17 @@
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
-import s from '..//MainNavigation/MainNavigation.module.css';
+import s from '../MainNavigation/MainNavigation.module.css';
+import { useSelector } from "react-redux";
+
 
 
 export default function AuthNavigate() {
+    const isLogged = useSelector(state => state.auth.isLogin)
+    console.log(isLogged);
     return (
-        <div>
+<>
+        {!isLogged &&
+            <div>
             <NavLink
                 to="/register"
                 className={({ isActive }) => {
@@ -23,5 +29,15 @@ export default function AuthNavigate() {
                 <span>Login</span>
             </NavLink>
         </div>
+            }
+            {isLogged &&
+                <div><NavLink
+                    to="/contacts">Contacts</NavLink>
+                    <p>User name</p>
+                    <button type="submit">
+                Logout
+            </button>
+                </div>}
+    </>
     );
 }

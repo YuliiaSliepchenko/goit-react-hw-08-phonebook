@@ -1,45 +1,35 @@
+import s from './FormContacts.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from '../../redux/contacts/selectors';
-import { contactAdd } from '../../redux/contacts/operations';
-import s from './FormContacts.module.css';
+import { addContact } from '../../redux/contacts/operations';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-
-
-
-export default function Form() {
-  
+export default function ContactForm() {
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
-   
-  const handleSubmit = e => {
-  e.preventDefault();
+  const onFormSubmit = e => {
+    e.preventDefault();
     const form = e.target;
     const name = form.elements.name.value;
     const number = form.elements.number.value;
-    const isNameDublicated = contacts.some(
+    const isNamesDublicated = contacts.some(
       el => el.name.toLowerCase() === name.toLowerCase()
     );
-
     const payload = {
       name: name,
       number: number,
     };
-        isNameDublicated
-      ? alert(`${name} is already in contacts!`)
-      : dispatch(contactAdd(payload));
-    form.reset();
-   }; 
+    isNamesDublicated
+      ? alert(`${name} is already in contacts.`)
+      : dispatch(addContact(payload));
 
-   
-    return ( 
-                
-         <form className={s.form} action='' onSubmit={handleSubmit}>
-            <h2 className={s.title}>Name</h2>
-        <label className={s.form_label} htmlFor="name">
-          <TextField
+    form.reset();
+  };
+  return (
+    <form className={s.wrapper} action="" onSubmit={onFormSubmit}>
+      <TextField
         fullWidth
         label="Name"
         id="name"
@@ -47,10 +37,7 @@ export default function Form() {
         placeholder="Enter contact name..."
         required
       />
-            </label>
-            <h2 className={s.title}>Number</h2>
-           <label className={s.form_label} htmlFor="number">
-         <TextField
+      <TextField
         fullWidth
         label="Number"
         id="number"
@@ -58,12 +45,9 @@ export default function Form() {
         placeholder="Enter contact phone number..."
         required
       />
-            </label>
-        <Button variant="outlined" type="submit">
-          Add contacts
-        </Button>
-          </form>
-         );
-      }
-    
-  
+      <Button variant="outlined" type="submit">
+        Add contact
+      </Button>
+    </form>
+  );
+}

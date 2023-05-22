@@ -30,13 +30,13 @@ const authSlice = createSlice({
       .addCase(register.fulfilled, (state, { payload }) => {
         state.user = payload.user;
         state.token = payload.token;
-        state.isLoading = true;
+        state.isLogin = true;
       })
       .addCase(logout.fulfilled, state => {
         state.user.name = null;
         state.user.email = null;
         state.token = null;
-        state.isLoading = false;
+        state.isLogin = false;
       })
       .addCase(refreshCurrentUser.fulfilled, (state, { payload }) => {
         state.user.name = payload.name;
@@ -64,4 +64,5 @@ const authPersistConfig = {
   storage,
   whitelist: ['token'],
 };
+
 export const authReducer = persistReducer(authPersistConfig, authSlice.reducer);
