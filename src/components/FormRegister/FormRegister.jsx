@@ -58,6 +58,7 @@ export default function RegisterForm() {
         onChange={handleChange}
         placeholder="Enter your name..."
         required
+        color="success"
       />
       <TextField
         fullWidth
@@ -68,15 +69,18 @@ export default function RegisterForm() {
         onChange={handleChange}
         placeholder="Enter your email..."
         required
+        color="success"
       />
       <FormControl fullWidth required variant="outlined">
-        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+        <InputLabel color="success" htmlFor="outlined-adornment-password">Password</InputLabel>
         <OutlinedInput
+          color="success"
           id="outlined-adornment-password"
           type={showPassword ? 'text' : 'password'}
           endAdornment={
             <InputAdornment position="end">
               <IconButton
+                color="success"
                 aria-label="toggle password visibility"
                 onClick={handleClickShowPassword}
                 onMouseDown={handleMouseDownPassword}

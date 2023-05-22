@@ -30,6 +30,7 @@ export default function ContactForm() {
   return (
     <form className={s.wrapper} action="" onSubmit={onFormSubmit}>
       <TextField
+        color="success"
         fullWidth
         label="Name"
         id="name"
@@ -38,6 +39,7 @@ export default function ContactForm() {
         required
       />
       <TextField
+        color="success"
         fullWidth
         label="Number"
         id="number"
