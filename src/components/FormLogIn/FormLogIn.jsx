@@ -69,6 +69,7 @@ export default function LoginForm() {
                 onClick={handleClickShowPassword}
                 onMouseDown={handleMouseDownPassword}
                 edge="end"
+                color="success"
               >
                 {showPassword ? <VisibilityOff /> : <Visibility />}
               </IconButton>
