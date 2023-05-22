@@ -44,8 +44,9 @@ export default function ContactForm() {
         name="number"
         placeholder="Enter contact phone number..."
         required
+      
       />
-      <Button variant="outlined" type="submit">
+      <Button className={s.btn} color="success" variant="contained" type="submit">
         Add contact
       </Button>
     </form>

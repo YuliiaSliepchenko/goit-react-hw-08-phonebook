@@ -93,7 +93,7 @@ export default function RegisterForm() {
           placeholder="Enter your password..."
         />
       </FormControl>
-      <Button variant="outlined" type="submit">
+      <Button className={s.btn} color="success" variant="contained" type="submit">
         Register
       </Button>
     </form>

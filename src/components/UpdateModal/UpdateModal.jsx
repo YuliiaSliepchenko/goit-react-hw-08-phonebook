@@ -57,6 +57,7 @@ export default function UpdateModal({ closeModal, contactToUpdate }) {
           onChange={onInputChange}
           placeholder="Enter contact name..."
           required
+          color="success"
         />
         <TextField
           fullWidth
@@ -67,12 +68,13 @@ export default function UpdateModal({ closeModal, contactToUpdate }) {
           onChange={onInputChange}
           placeholder="Enter contact phone number..."
           required
+          color="success"
         />
         <div className={s.btnWrapper}>
-          <Button variant="outlined" type="button" onClick={onUpdateClick}>
+          <Button className={s.btn} color="success" variant="contained" type="button" onClick={onUpdateClick}>
             Update
           </Button>
-          <Button variant="outlined" type="button" onClick={onCancelClick}>
+          <Button className={s.btn} color="success" variant="contained" type="button" onClick={onCancelClick}>
             Cancel
           </Button>
         </div>

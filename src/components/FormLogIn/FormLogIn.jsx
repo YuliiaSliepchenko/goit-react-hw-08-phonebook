@@ -54,6 +54,7 @@ export default function LoginForm() {
         onChange={handleChange}
         placeholder="Enter your email..."
         required
+        color="success"
       />
       <FormControl fullWidth required variant="outlined">
         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
@@ -77,9 +78,10 @@ export default function LoginForm() {
           value={password}
           onChange={handleChange}
           placeholder="Enter your password..."
+          color="success"
         />
       </FormControl>
-      <Button variant="outlined" type="submit">
+      <Button className={s.btn} color="success" variant="contained" type="submit">
         Login
       </Button>
     </form>

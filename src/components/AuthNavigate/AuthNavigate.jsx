@@ -34,7 +34,7 @@ export default function AuthNavigate() {
                 <div><NavLink
                     to="/contacts">Contacts</NavLink>
                     <p>User name</p>
-                    <button type="submit">
+                    <button className={s.btn} color="success" variant="contained" type="submit">
                 Logout
             </button>
                 </div>}

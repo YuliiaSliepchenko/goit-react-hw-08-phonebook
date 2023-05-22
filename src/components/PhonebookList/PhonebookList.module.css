@@ -35,4 +35,9 @@ h1 {
   display: flex;
   gap: 4px;
   justify-content: space-between;
+  color: rgba(64, 152, 99, 0.526);
+}
+.btn {
+  color: rgb(250, 252, 251);
+  border: 1px solid rgba(64, 152, 99, 0.526);
 }

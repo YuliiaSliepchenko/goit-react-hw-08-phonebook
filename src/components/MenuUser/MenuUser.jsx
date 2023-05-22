@@ -10,10 +10,12 @@ export default function UserMenu() {
     <div className={s.wrapper}>
       <span>Welcome, {name.toUpperCase()}</span>
       <Button
-        variant="outlined"
         size="small"
         type="button"
         onClick={() => dispatch(logout())}
+        className={s.btn}
+        color="success"
+        variant="contained"
       >
         Logout
       </Button>

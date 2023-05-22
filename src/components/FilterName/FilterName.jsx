@@ -19,7 +19,8 @@ export default function Filter() {
         id="filter"
         name="filter"
         onChange={handlerOnChange}
-        placeholder="Find contacts by name..."
+                placeholder="Find contacts by name..."
+                color="success"
       />
         </div>
     );

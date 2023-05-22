@@ -1,4 +1,5 @@
 import s from './PhonebookList.module.css';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { selectFilteredContacts } from '../../redux/contacts/selectors';
 import { deleteContact } from '../../redux/contacts/operations';
@@ -18,6 +19,9 @@ export default function ContactList({ openModal }) {
           </div>
           <div className={s.buttonWrapper}>
             <Button
+              className={s.btn}
+              color="success"
+              variant="contained"
               type="button"
               fullWidth
               size="small"
@@ -26,6 +30,9 @@ export default function ContactList({ openModal }) {
               Update
             </Button>
             <Button
+              className={s.btn}
+              color="success"
+              variant="contained"
               type="button"
               fullWidth
               size="small"
